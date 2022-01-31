@@ -1,14 +1,14 @@
 import React from "react";
-import { CVDataContext } from "../../Contexts/CVDataContext";
+import PersonalInfoSection from "../Editor Sections/Personal InfoSection/PersonalInfoSection";
+
+import ProfessionalSummarySection from "../Editor Sections/Professional SummarySection/ProfessionalSummarySection";
 
 function CVEditor() {
   return (
-    <CVDataContext.Consumer>
-      {(value) => {
-        console.log(value);
-        return <h1>CVEditor</h1>;
-      }}
-    </CVDataContext.Consumer>
+    <React.Fragment>
+      <ProfessionalSummarySection />
+      <PersonalInfoSection />
+    </React.Fragment>
   );
 }
 

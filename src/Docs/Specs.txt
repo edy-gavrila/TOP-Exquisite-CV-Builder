@@ -1,0 +1,15 @@
+Exquisite CV Builder - Project for The Odin Project
+
+1. Convert project from first form using html tags to import react to create-react-app application. 
+
+2. Create the interface for editing the CV Sections
+    The CV should have the following sections:
+        1 - Professional Summary 
+        2 - Personal Info (including contact information)
+        3 - Education and Training
+        4 - Skills
+        5 - Work Experience
+
+3. The user should be able to toggle between Edit mode and Preview mode
+
+4. The user should be able to edit the sections individually.

@@ -1,0 +1,5 @@
+0. Create initial app and folder structure --done
+1. Create menu and toggle component -- done
+2. Create work area
+3. Create Professional Summary Section
+4. Create Personal Info Section

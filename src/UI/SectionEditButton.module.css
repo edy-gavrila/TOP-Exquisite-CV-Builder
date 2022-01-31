@@ -1,0 +1,13 @@
+.section-edit-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.section-edit-btn:active {
+  transform: scale(0.97);
+}

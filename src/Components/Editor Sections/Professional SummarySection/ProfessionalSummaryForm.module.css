@@ -1,0 +1,25 @@
+.label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid #68b0ab;
+  border-radius: 3px 3px 0 0;
+  font-size: 1rem;
+  background-color: #faf3dd;
+}
+
+.textarea:focus {
+  outline: none;
+  border-bottom: 3px solid #447572;
+}
+
+.textarea:invalid {
+  background-color: rgba(252, 124, 124, 0.404);
+}

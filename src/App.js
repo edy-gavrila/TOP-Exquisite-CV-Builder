@@ -1,4 +1,9 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
+import { logErrorWithLocation } from "./API/errorManagement";
+import {
+  getDataFromLocalStorage,
+  saveDataToLocalStorage,
+} from "./API/localStorageOperations";
 
 import "./App.css";
 import Header from "./Components/Header/Header";
@@ -16,6 +21,24 @@ function App() {
   const [displayMode, setDisplayMode] = useState(defaultDisplayMode);
 
   const [CVData, dispatch] = useReducer(CVDataReducer, defaultCVData);
+  const [readyToSave, setReadyToSave] = useState(false);
+
+  useEffect(() => {
+    try {
+      const dataLoadedFromLocalStorage = getDataFromLocalStorage();
+      console.log(dataLoadedFromLocalStorage);
+      dispatch({ type: "loadFromLS", payload: dataLoadedFromLocalStorage });
+    } catch (error) {
+      logErrorWithLocation("App.js UseEffect", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (readyToSave) {
+      setReadyToSave(false);
+      saveDataToLocalStorage(CVData);
+    }
+  }, [CVData, readyToSave]);
 
   const toggleDisplayMode = () => {
     setDisplayMode((prevState) => {
@@ -23,13 +46,23 @@ function App() {
       return { ...prevState, mode };
     });
   };
+
+  const saveProfessionalSummaryDataHanler = (data) => {
+    dispatch({ type: "saveProfessionalSummary", payload: data });
+    setReadyToSave(true);
+  };
   return (
     <div className="App">
       <DisplayModeContext.Provider
         value={{ ...displayMode, toggleDisplayMode }}
       >
         <Header />
-        <CVDataContext.Provider value={CVData}>
+        <CVDataContext.Provider
+          value={{
+            ...CVData,
+            onSaveProfessionalSummaryData: saveProfessionalSummaryDataHanler,
+          }}
+        >
           <WorkArea />
         </CVDataContext.Provider>
       </DisplayModeContext.Provider>

@@ -1,0 +1,16 @@
+.field-container {
+  margin: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #447572;
+}
+
+.label {
+  font-size: 1.2rem;
+}
+
+.text {
+  margin-right: 4rem;
+  text-align: right;
+}
