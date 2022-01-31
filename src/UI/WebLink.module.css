@@ -1,0 +1,13 @@
+.web-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  min-width: 20%;
+  margin: 0 10px;
+  padding: 1rem 0;
+  color: #355a58;
+}
+
+.icons {
+  margin-right: 0.5rem;
+}

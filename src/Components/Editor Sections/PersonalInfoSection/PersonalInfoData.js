@@ -1,5 +1,8 @@
 import React from "react";
 import InfoField from "../../../UI/InfoField";
+import WebLink from "../../../UI/WebLink";
+
+import classes from "./PersonalInfoData.module.css"
 
 function PersonalInfoData({ persInfoData }) {
   const { firstName, familyName, email, phoneNumber } = persInfoData;
@@ -11,6 +14,17 @@ function PersonalInfoData({ persInfoData }) {
       <InfoField label={"Family Name"} text={familyName} />
       <InfoField label={"Email"} text={email} />
       <InfoField label={"Phone Number"} text={phoneNumber} />
+      <div className={classes["web-links-container"]}>
+        <WebLink iconType="twitter" address={twitter} label="Twitter" />
+        <WebLink iconType="linkedIn" address={linkedIn} label="LinkedIn" />
+        <WebLink iconType="github" address={github} label="Github" />
+        <WebLink iconType="facebook" address={facebook} label="Facebook" />
+        <WebLink
+          iconType="portfolio"
+          address={personalPortfolio}
+          label="Personal Portfolio"
+        />
+      </div>
     </React.Fragment>
   );
 }
