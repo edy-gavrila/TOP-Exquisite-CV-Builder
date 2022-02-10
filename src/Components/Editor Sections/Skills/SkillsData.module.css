@@ -1,0 +1,10 @@
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding-left: 1rem;
+}
+
+.skills-list li {
+  width: 50%;
+}

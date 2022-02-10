@@ -9,12 +9,29 @@ const saveDataToLocalStorage = (data) => {
   }
 };
 
-const getDataFromLocalStorage = () => {
-  const retreivedData = localStorage.getItem(localStorageDataIdentifier);
-  if (!retreivedData) {
+const getDataFromLocalStorage = (validKeys = []) => {
+  let retrievedData = localStorage.getItem(localStorageDataIdentifier);
+  if (!retrievedData) {
     throw new Error("No data in local storage");
   } else {
-    return JSON.parse(retreivedData);
+    retrievedData = JSON.parse(retrievedData);
+    return eliminateExtraKeys(validKeys, retrievedData);
+  }
+};
+
+const eliminateExtraKeys = (validKeys, objectToClean) => {
+  if (validKeys.length === 0) {
+    return objectToClean;
+  }
+  try {
+    const cleanedObject = {};
+    validKeys.forEach((key) => {
+      cleanedObject[key] = objectToClean[key];
+    });
+    return { ...cleanedObject };
+  } catch (e) {
+    logErrorWithLocation("eliminateExtraKeys", e);
+    return objectToClean;
   }
 };
 

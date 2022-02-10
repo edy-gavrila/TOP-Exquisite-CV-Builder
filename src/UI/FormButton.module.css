@@ -1,0 +1,26 @@
+.form-button {
+  border: none;
+  padding: 0.5rem 2rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #faf3dd;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.submit-button {
+  background-color: #68b0ab;
+}
+
+.cancel-button {
+  background-color: rgb(93, 93, 93);
+}
+
+.add-button {
+  background-color: rgb(29, 29, 29);
+}
+
+.form-button:active {
+  transform: scale(0.98);
+}

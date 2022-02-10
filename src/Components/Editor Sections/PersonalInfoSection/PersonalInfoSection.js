@@ -14,9 +14,18 @@ function PersonalInfoSection() {
           <SectionContainer>
             <SectionTitle text="Personal Info" />
             {!isEditingPersonalInfo && (
-              <PersonalInfoData persInfoData={value.personalInfo} />
+              <PersonalInfoData
+                persInfoData={value.personalInfo}
+                onSetEditingMode={() => setIsEditingPersonalInfo(true)}
+              />
             )}
-            {isEditingPersonalInfo && <PersonalInfoForm />}
+            {isEditingPersonalInfo && (
+              <PersonalInfoForm
+                onCancelEditing={() => setIsEditingPersonalInfo(false)}
+                persInfoData={value.personalInfo}
+                onSavePersonalInfoData={value.onSavePersonalInfoData}
+              />
+            )}
           </SectionContainer>
         );
       }}

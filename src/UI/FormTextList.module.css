@@ -1,9 +1,4 @@
-.label {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-.textarea {
+.text-list {
   width: 100%;
   padding: 10px;
   margin-bottom: 1rem;
@@ -15,11 +10,11 @@
   background-color: #faf3dd;
 }
 
-.textarea:focus {
+.text-list:focus {
   outline: none;
   border-bottom: 3px solid #447572;
 }
 
-.textarea:invalid {
+.text-list:invalid {
   background-color: rgba(252, 124, 124, 0.404);
 }

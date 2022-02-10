@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import classes from "./ProfessionalSummaryForm.module.css";
+import FormButton from "../../../UI/FormButton";
+import FormTextList from "../../../UI/FormTextList";
 
 function ProfessionalSummaryForm({
   profSumData,
@@ -8,7 +9,7 @@ function ProfessionalSummaryForm({
 }) {
   const [formData, setFormData] = useState(profSumData.join("\n"));
 
-  const saveProfessionalSummaryData = (e) => {
+  const saveProfessionalSummaryDataHandler = (e) => {
     e.preventDefault();
     let paragraphs = formData.split("\n");
     paragraphs = paragraphs.filter((para) => para.length !== 0);
@@ -21,24 +22,20 @@ function ProfessionalSummaryForm({
   };
 
   return (
-    <form onSubmit={saveProfessionalSummaryData}>
-      {/* <label htmlFor="profesionalSummary" className={classes.label}>
-        Professional Summary
-      </label> */}
-      <textarea
+    <form onSubmit={saveProfessionalSummaryDataHandler}>
+      <FormTextList
         name="summary"
-        className={classes.textarea}
         rows={10}
         value={formData}
         onChange={editProfessionalSummaryHandler}
         required
-      ></textarea>
-      <input type="submit" className="section-button save-btn" value={"SAVE"} />
-      <input
+      />
+      <FormButton type="submit" role="submit" value="SAVE" />
+      <FormButton
         type="button"
+        role="cancel"
+        value="CANCEL"
         onClick={onCancelEditing}
-        className="section-button cancel-btn"
-        value={"CANCEL"}
       />
     </form>
   );

@@ -10,7 +10,6 @@ function ProfessionalSummary({ profSumData, onSetEditingMode }) {
   return (
     <React.Fragment>
       <SectionEditButton onClick={onSetEditingMode} />
-      
       {textContent}
     </React.Fragment>
   );
