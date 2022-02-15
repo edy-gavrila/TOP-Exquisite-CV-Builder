@@ -35,7 +35,6 @@ function App() {
   const [displayMode, setDisplayMode] = useState(defaultDisplayMode);
 
   const [CVData, dispatch] = useReducer(CVDataReducer, defaultCVData);
-  const [readyToSave, setReadyToSave] = useState(false);
 
   useEffect(() => {
     let dataLoadedFromLocalStorage;
@@ -48,11 +47,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (readyToSave) {
-      setReadyToSave(false);
-      saveDataToLocalStorage(CVData);
-    }
-  }, [CVData, readyToSave]);
+    saveDataToLocalStorage(CVData);
+  }, [CVData]);
 
   const toggleDisplayMode = () => {
     setDisplayMode((prevState) => {
@@ -63,7 +59,6 @@ function App() {
 
   const saveCVDataHandler = (type, data) => {
     dispatch({ type, payload: data });
-    setReadyToSave(true);
   };
 
   const appliedClasses = ["App"];
