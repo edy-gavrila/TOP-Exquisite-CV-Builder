@@ -10,3 +10,6 @@
   margin-bottom: 0.5rem;
 }
 
+.preview-mode {
+  min-width: 910px;
+}

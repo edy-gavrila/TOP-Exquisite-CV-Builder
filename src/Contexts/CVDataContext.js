@@ -15,7 +15,7 @@ const defaultCVData = {
     },
   },
   educationAndTraining: [],
-  skills: ["JavaScript", "HTML", "CSS", "React", "Tailwind"],
+  skills: [],
   workExperience: [],
   onSaveProfessionalSummaryData: () => {},
   onSavePersonalInfoData: () => {},

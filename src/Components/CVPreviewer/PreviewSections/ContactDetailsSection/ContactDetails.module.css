@@ -1,0 +1,17 @@
+.contact-details-section {
+  margin-bottom: 3rem;
+}
+
+
+.contact-details-section p {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  margin: 1rem 0rem;
+  margin-left: 1rem;
+}
+
+.contact-details-icon {
+  margin-right: 1rem;
+}
+

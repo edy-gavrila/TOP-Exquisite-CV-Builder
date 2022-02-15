@@ -7,8 +7,6 @@ import {
   saveDataToLocalStorage,
 } from "./API/localStorageOperations";
 
-import Header from "./Components/Header/Header";
-import WorkArea from "./Components/WorkArea/WorkArea";
 import { CVDataContext, defaultCVData } from "./Contexts/CVDataContext";
 import {
   DisplayModeContext,
@@ -30,8 +28,11 @@ import {
   validDataKeys,
 } from "./Reducers/CVDataReducer";
 
+import Header from "./Components/Header/Header";
+import WorkArea from "./Components/WorkArea/WorkArea";
+
 function App() {
-  const [displayMode, setDisplayMode] = useState(editMode);
+  const [displayMode, setDisplayMode] = useState(defaultDisplayMode);
 
   const [CVData, dispatch] = useReducer(CVDataReducer, defaultCVData);
   const [readyToSave, setReadyToSave] = useState(false);
@@ -65,8 +66,13 @@ function App() {
     setReadyToSave(true);
   };
 
+  const appliedClasses = ["App"];
+  if (displayMode.mode === previewMode) {
+    appliedClasses.push("preview-mode");
+  }
+
   return (
-    <div className="App">
+    <div className={appliedClasses.join(" ")}>
       <DisplayModeContext.Provider
         value={{ ...displayMode, toggleDisplayMode }}
       >

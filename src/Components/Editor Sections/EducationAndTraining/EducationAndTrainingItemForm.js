@@ -3,6 +3,7 @@ import FormButton from "../../../UI/FormButton";
 import SectionTitle from "../../../UI/SectionTitle";
 import FormInput from "../../../UI/FormInput";
 import FormPeriodSelect from "../../../UI/FormPeriodSelect";
+import classes from "./EducationAndTrainingItemForm.module.css";
 
 function EducationAndTrainingItemForm({
   itemNumber,
@@ -39,7 +40,10 @@ function EducationAndTrainingItemForm({
   };
 
   return (
-    <form onSubmit={saveEducationAndTrainingDataHandler}>
+    <form
+      onSubmit={saveEducationAndTrainingDataHandler}
+      className={classes["education-form"]}
+    >
       <SectionTitle text={`Education #${itemNumber}:`} />
       <FormInput
         type="text"
@@ -59,10 +63,8 @@ function EducationAndTrainingItemForm({
       />
       <FormPeriodSelect
         values={{
-          from: educationData.studyPeriod ? educationData.studyPeriod.from : "",
-          until: educationData.studyPeriod
-            ? educationData.studyPeriod.until
-            : "",
+          from: educationData.studyPeriod.from,
+          until: educationData.studyPeriod.until,
         }}
         ids={{ from: "studyStartDate", until: "studyEndDate" }}
         onChange={(e) => inputChangedHandler(e.target.id, e.target.value)}

@@ -4,6 +4,7 @@ import SectionTitle from "../../../UI/SectionTitle";
 import FormInput from "../../../UI/FormInput";
 import FormTextList from "../../../UI/FormTextList";
 import FormPeriodSelect from "../../../UI/FormPeriodSelect";
+import classes from "./ExperienceItemForm.module.css";
 
 function ExperienceItemForm({
   itemNumber,
@@ -41,7 +42,10 @@ function ExperienceItemForm({
     onCancelEditing();
   };
   return (
-    <form onSubmit={saveExperienceHandler}>
+    <form
+      onSubmit={saveExperienceHandler}
+      className={classes["experience-form"]}
+    >
       <SectionTitle text={`Experience #${itemNumber}:`} />
       <FormInput
         type="text"

@@ -1,0 +1,11 @@
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  display: block;
+  padding: 0;
+}
+
+.family-name {
+  position: relative;
+  top: -1.6rem;
+}

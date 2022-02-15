@@ -1,4 +1,6 @@
 import React from "react";
+import classes from "./WorkArea.module.css";
+
 import {
   DisplayModeContext,
   editMode,
@@ -6,23 +8,29 @@ import {
 } from "../../Contexts/DisplayModeContext";
 import CVEditor from "../CVEditor/CVEditor";
 import CVPreviewer from "../CVPreviewer/CVPreviewer";
-import classes from "./WorkArea.module.css";
 
 function WorkArea() {
   return (
-    <main className={classes["work-area-container"]}>
-      <DisplayModeContext.Consumer>
-        {(value) => {
-          if (value.mode === editMode) {
-            return <CVEditor />;
-          }
-          if (value.mode === previewMode) {
-            return <CVPreviewer />;
-          }
-          return null;
-        }}
-      </DisplayModeContext.Consumer>
-    </main>
+    <DisplayModeContext.Consumer>
+      {(value) => {
+        const appliedContainerClasses = [classes["work-area-container"]];
+
+        let workAreaContent = null;
+        if (value.mode === editMode) {
+          workAreaContent = <CVEditor />;
+        }
+        if (value.mode === previewMode) {
+          workAreaContent = <CVPreviewer />;
+          appliedContainerClasses.push(classes["preview-mode-container"]);
+        }
+
+        return (
+          <main className={appliedContainerClasses.join(" ")}>
+            {workAreaContent}
+          </main>
+        );
+      }}
+    </DisplayModeContext.Consumer>
   );
 }
 

@@ -1,20 +1,29 @@
 .work-area-container {
   background-color: #8fc0a9;
-  margin: 20px 10%;
+  margin: 1.5rem 10%;
   color: #f5f0e0;
   padding: 1rem 1rem;
   border-radius: 5px;
   text-align: center;
 }
 
+.preview-mode-container {
+  width: 910px;
+  margin: 1.5rem auto;
+}
+
 @media (min-width: 1200px) {
   .work-area-container {
-    margin: 20px 20%;
+    margin: 1.5rem 20%;
+  }
+  .work-area-container.preview-mode-container {
+    margin: 1.5rem auto;
   }
 }
+
 @media (max-width: 576px) {
   .work-area-container {
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
     padding: 0.5rem;
   }

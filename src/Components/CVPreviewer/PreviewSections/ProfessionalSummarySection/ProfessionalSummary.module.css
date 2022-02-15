@@ -1,0 +1,7 @@
+.ps-section {
+  margin-bottom: 2rem;
+}
+
+.text-paragraph::first-letter {
+  font-weight: bold;
+}
